@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">POS_System</string>
+    <string name="open_nav">Ope nav</string>
+    <string name="Close_nav">Close nav</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string-array name="Catogory_item">
+        <item>B001</item>
+        <item>A001</item>
+    </string-array>
+</resources>
