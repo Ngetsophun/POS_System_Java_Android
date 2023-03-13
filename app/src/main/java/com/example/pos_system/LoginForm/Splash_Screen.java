@@ -1,10 +1,12 @@
-package com.example.pos_system;
+package com.example.pos_system.LoginForm;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+
+import com.example.pos_system.R;
 
 public class Splash_Screen extends AppCompatActivity {
 
@@ -18,7 +20,7 @@ public class Splash_Screen extends AppCompatActivity {
         handler.postDelayed(new Runnable() {
             @Override
             public void run() {
-                Intent intent = new Intent(Splash_Screen.this,login_form.class);
+                Intent intent = new Intent(Splash_Screen.this,LoginActivity.class);
                 startActivity(intent);
                 finish();
             }

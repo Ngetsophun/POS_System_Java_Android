@@ -33,12 +33,18 @@ public class MenuFragment extends Fragment {
         datahomepage = new ArrayList<>();
 
         datahomepage.add(new HomePage("Invoice",R.drawable.invoice2));
-        datahomepage.add(new HomePage("Items",R.drawable.itemimg));
+        datahomepage.add(new HomePage("Product",R.drawable.itemimg));
         datahomepage.add(new HomePage("Report",R.drawable.report));
         datahomepage.add(new HomePage("Catogory",R.drawable.person));
         datahomepage.add(new HomePage("User",R.drawable.userimg));
         datahomepage.add(new HomePage("About",R.drawable.about_us1));
+        datahomepage.add(new HomePage("Customer",R.drawable.about_us1));
+        datahomepage.add(new HomePage("Location",R.drawable.about_us1));
+        datahomepage.add(new HomePage("Sale",R.drawable.about_us1));
+        datahomepage.add(new HomePage("Card",R.drawable.about_us1));
+
         gridView = view.findViewById(R.id.gridview);
+        gridView.setVerticalScrollBarEnabled(false);
 
 
 

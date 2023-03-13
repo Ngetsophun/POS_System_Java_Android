@@ -8,4 +8,9 @@
         <item>B001</item>
         <item>A001</item>
     </string-array>
+    <string name="title_activity_add_new_payment">AddNewPaymentActivity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="action_search">Search</string>
 </resources>

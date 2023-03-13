@@ -3,16 +3,16 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/teal_200"
     tools:context=".MenuFragment">
 
-    <!-- TODO: Update blank fragment layout -->
   <GridView
+      android:id="@+id/gridview"
+
       android:layout_width="match_parent"
       android:layout_height="match_parent"
-      android:numColumns="2"
-android:listSelector="#00000000"
-      android:id="@+id/gridview"
-      />
+      android:listSelector="#00000000"
+      android:numColumns="2" />
 
 
 </FrameLayout>

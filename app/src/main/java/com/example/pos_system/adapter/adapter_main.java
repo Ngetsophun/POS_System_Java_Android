@@ -11,11 +11,17 @@ import android.widget.TextView;
 
 import androidx.cardview.widget.CardView;
 
-import com.example.pos_system.AddNewUser;
-import com.example.pos_system.AddNewitem;
-import com.example.pos_system.Catogory.CatogoryItems;
+import com.example.pos_system.Card.CardActivity;
+import com.example.pos_system.Customer.View_Customer;
+import com.example.pos_system.Invoice.Invoiceitems;
+
 import com.example.pos_system.HomePage;
+import com.example.pos_system.Product.ViewAll_item;
 import com.example.pos_system.R;
+import com.example.pos_system.Catogory.View_Catogoey;
+import com.example.pos_system.Sale.Sale_ProductActivity;
+import com.example.pos_system.User.ViewUser;
+import com.example.pos_system.location.LocationActivity;
 
 import java.util.List;
 
@@ -64,18 +70,29 @@ public class adapter_main extends BaseAdapter {
         public void onClick(View view) {
             switch (dataMenu.get(i).getTitle()){
                 case "Invoice":
-                context.startActivity(new Intent(context, AddNewitem.class));break;
+                context.startActivity(new Intent(context, Invoiceitems.class));break;
                 case "Catogory":
-                    context.startActivity(new Intent(context, CatogoryItems.class));break;
+                    context.startActivity(new Intent(context, View_Catogoey.class));break;
                 case "User":
-                context.startActivity(new Intent(context, AddNewUser.class));break;
+                context.startActivity(new Intent(context, ViewUser.class));break;
+                case "Product":
+                context.startActivity(new Intent(context, ViewAll_item.class));break;
+                case "Customer":
+                context.startActivity(new Intent(context, View_Customer.class));break;
+                case "Location":
+                context.startActivity(new Intent(context, LocationActivity.class));break;
+                case "Sale":
+                    context.startActivity(new Intent(context,Sale_ProductActivity.class));break;
+                case "Card":
+                    context.startActivity(new Intent(context, CardActivity.class));break;
+
             }
         }
     });
 
-
         return  view;
     }
+
 
 
 }

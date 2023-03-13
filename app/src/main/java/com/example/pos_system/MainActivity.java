@@ -13,22 +13,20 @@ import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
-import android.widget.AdapterView;
-import android.widget.Button;
-import android.widget.EditText;
 import android.widget.FrameLayout;
-import android.widget.GridView;
-import android.widget.ListView;
-import android.widget.Toast;
 
-import com.example.pos_system.adapter.adapter_main;
+import com.example.pos_system.Drawer.LanguageFragment;
+import com.example.pos_system.Drawer.SettingFragment;
+import com.example.pos_system.Payment.Show_PaymentActivity;
+import com.example.pos_system.databinding.ActivityMainBinding;
+import com.example.pos_system.location.LocationActivity;
 import com.google.android.material.navigation.NavigationView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
@@ -43,6 +41,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     AlertDialog.Builder builder;
     CardView cardView;
+
+    ActivityMainBinding binding;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -50,8 +50,6 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
         frameLayout= findViewById(R.id.fragmMenu);
         getSupportFragmentManager().beginTransaction().replace(R.id.fragmMenu,new MenuFragment()).commit();
-
-
 
         //login
 
@@ -83,18 +81,43 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
         item.setCheckable(true);
+        drawerLayout.closeDrawer(GravityCompat.START);
         switch (item.getItemId()){
             case R.id.setting:
-//                Intent i = new Intent(MainActivity.this,Menu.class);
-//                startActivity(i);
-                Toast.makeText(this, "setting", Toast.LENGTH_SHORT).show();
-             break;
+                replaceFramgement(new SettingFragment());break;
             case R.id.About_US:
-                Toast.makeText(this, "About us", Toast.LENGTH_SHORT).show();
+                replaceFramgement(new LanguageFragment());break;
             case R.id.Logout:
-                Toast.makeText(this, "Logout", Toast.LENGTH_SHORT).show();
+                findViewById(R.id.Logout).setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                        builder.setTitle("Logout");
+                        builder.setMessage("Do you want to exit");
+                        builder.setCancelable(false);
+                        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                finish();
+                            }
+                        });
+                        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialogInterface, int i) {
+                                dialogInterface.dismiss();
+                            }
+                        });
+                        builder.create().show();
+                    }
+                });
             case R.id.languages:
-                Toast.makeText(this, "languages", Toast.LENGTH_SHORT).show();
+                replaceFramgement(new LanguageFragment());break;
+            case R.id.dashboard:
+                replaceFramgement(new MenuFragment());break;
+            case R.id.Payment:
+                Intent intent = new Intent(MainActivity.this, Show_PaymentActivity.class);
+                startActivity(intent);
+
         }
         return true;
     }
